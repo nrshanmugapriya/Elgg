@@ -56,7 +56,7 @@ function search_exclude_robots(\Elgg\Hook $hook) {
  * @return void|array
  */
 function search_output_tag(\Elgg\Hook $hook) {
-	$vars = $hook->getValue();
+	$vars = mysqli_real_escape_string($CONFIG,$hook->getValue());
 	if (isset($vars['href'])) {
 		// leave unaltered
 		return;
